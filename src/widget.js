@@ -50,11 +50,11 @@ const Widget = {
     init: async (amocrm, self) => {
         const account = amocrm.constant('account');
         await apiClient.get(`subdomains/${account.subdomain}/async`, { byWidgetId: true });
-        if (amocrm.data.current_entity === 'leads') {
+        // if (amocrm.data.current_entity === 'leads') {
             let settings = self.get_settings();
-            console.log(settings);
+    
             $('.linked-form__field__value').click((event) => {
-                if ($(event.target).val() !== null) {
+                if ($(event.target).val() !== null && $(event.target).closest('div[data-pei-code="phone"]').length>0) {
                     let value = $(event.target).val();
                     let phone = value.replace(/[^0-9]/g, '').replace(/^9/, "79").replace(/^8/, "7");
                     let item = `<div class="tips-item js-tips-item js-cf-actions-item " data-type="phone" data-id="" data-forced="" data-value="" data-suggestion-type="" data-widget="tech8_waweb">
@@ -91,7 +91,7 @@ const Widget = {
                 }
 
             });
-        }
+        // }
         return true;
     },
     render: async (amocrm, self) => true,
