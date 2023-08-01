@@ -43,7 +43,7 @@ const goToAdvancedSettings = async () => {
     let button = $("#save_dct_google_calendar");
     button.click();
     await save();
-    window.location.href = `https://${subdomain.value.domain}/settings/widgets`;
+    window.location.href = `https://${subdomain.value.domain}/settings/widgets/tech8_waweb`;
   }
 };
 

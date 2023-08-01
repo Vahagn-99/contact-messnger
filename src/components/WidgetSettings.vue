@@ -45,7 +45,7 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            {{ isLoading ? "Загруска..." : "Изменить цвета" }}
+            {{ isLoading ? "Загрузка..." : "Изменить цвета" }}
           </button>
         </div>
       </div>

@@ -27,9 +27,9 @@
                 "loose": true
             }
         ]
-        // ,
-        // [
-        //     "transform-remove-console"
-        // ]
+        ,
+        [
+            "transform-remove-console"
+        ]
     ]
 }
