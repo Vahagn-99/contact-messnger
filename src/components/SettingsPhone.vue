@@ -57,7 +57,12 @@
             </svg>
           </div>
           <div>
-            <div class="dtc-activate__title text-[15px] text-[#343434]">Статус клиента <span class="text-[#00ad71]" v-if="hasPhone"> : Телефон подтвержден</span></div>
+            <div class="dtc-activate__title text-[15px] text-[#343434]">
+              Статус клиента
+              <span class="text-[#00ad71]" v-if="hasPhone">
+                : Телефон подтвержден</span
+              >
+            </div>
             <div class="dtc-activate__description text-[15px] text-black">
               Подтвердите телефон и получите виджет в подарок
             </div>
@@ -91,24 +96,29 @@
                       </div>
                     </div>
                     <ul class="country-list" v-if="openCountryList">
-                      <li
-                        @click="
-                          handleCountryCode(
-                            country.code,
-                            country.iso.toLowerCase(),
-                            country.mask
-                          )
-                        "
+                      <template
                         v-for="country in countries"
                         :key="country.code"
-                        class="country"
-                        :data-dial-code="country.iso"
-                        :data-country-code="country.code.toLowerCase()"
                       >
-                        <div :class="'flag ' + country.iso.toLowerCase()"></div>
-                        <span class="country-name">{{ country.name }}</span
-                        ><span class="dial-code">{{ country.code }}</span>
-                      </li>
+                        <li
+                          @click="
+                            handleCountryCode(
+                              country.code,
+                              country.iso.toLowerCase(),
+                              country.mask
+                            )
+                          "
+                          class="country"
+                          :data-dial-code="country.iso"
+                          :data-country-code="country.code.toLowerCase()"
+                        >
+                          <div
+                            :class="'flag ' + country.iso.toLowerCase()"
+                          ></div>
+                          <span class="country-name">{{ country.name }}</span
+                          ><span class="dial-code">{{ country.code }}</span>
+                        </li>
+                      </template>
                     </ul>
                   </div>
                 </div>
@@ -136,6 +146,7 @@
                 <input
                   type="checkbox"
                   name="dtc-politics"
+                  v-bind:checked="hasPhone"
                   v-model="userAgreed"
                 />
                 <span class="control-checkbox__helper"></span>
@@ -201,7 +212,7 @@ function handleCountryCode(code, flag, mask) {
   currentCountryCode.value = code;
   currentCountryFlag.value = flag;
   currentCountryMask.value = code + mask;
-  openCountryList.value = false;
+  toggleCountryList()
 }
 
 function toggleCountryList() {

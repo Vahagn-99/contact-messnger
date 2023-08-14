@@ -1,15 +1,15 @@
 <template>
   <div class="view-integration-modal__activation">
     <div class="activation-main-wrapper">
-      <div class="dct-activation-page">
-        <div class="dct-send-phone-block">
+      <div class="dtc-activation-page">
+        <div class="dtc-send-phone-block">
           <div>
             <SettingsPhone :isMain="false" :loading="phoneLoading" />
           </div>
           <button
             type="button"
             @click="goToAdvancedSettings"
-            class="w-full justify-center mt-4 mb-4 dct-button setting-btn text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2"
+            class="w-full justify-center mt-4 mb-4 dtc-button setting-btn text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-md px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2"
           >
             <svg
               v-if="saveLoading"
@@ -30,17 +30,13 @@
               />
             </svg>
             <span>
-              {{
-                saveLoading
-                  ? "Загрузка"
-                  : "Активировать виджет"
-              }}
+              {{ saveLoading ? "Загрузка" : "Активировать виджет" }}
             </span>
           </button>
           <div>
             <Support :isMain="false">
               <template v-slot:text>
-                <div class="dct-feedback__text">
+                <div class="dtc-feedback__text">
                   <strong class="text-[15px] text-[#343434]"
                     >Техническая поддержка</strong
                   ><br />
